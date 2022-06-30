@@ -1,0 +1,15 @@
+<h1>User編集</h1>
+
+　<%= form_with model: User.find(params[:id]), url: user_path(@user.id), method: :patch, local:true do |f| %>
+
+　  <%= f.text_field :name %>
+
+　  <%= f.text_field :car_name %>
+
+　  <%= f.collection_select :maker_genre_id, MakerGenre.all, :id, :mname, options = { include_blank: true, :prompt => "選択して下さい" } %>
+
+    <%= f.file_field :plofile_image %>
+
+    <%= f.submit "編集" %>
+
+  <% end %>

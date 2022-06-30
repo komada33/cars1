@@ -1,0 +1,18 @@
+<h1>maker_genres</h1>
+  <div>
+  <%= form_with model: @maker, url: '/admin/maker_genres', local:true do |f| %>
+    <h4>maker</h4>
+    <%= f.text_field :mname %>
+    <%= f.submit "登録" %>
+  <% end %>
+  </div>
+
+  <div>
+    <% @makers.each do |maker_genre| %>
+    　<div>
+      <%= maker_genre.mname %>
+      <%= link_to "編集", edit_admin_maker_genre_path(maker_genre.id) %>
+      </div>
+    <% end %>
+  </div>
+

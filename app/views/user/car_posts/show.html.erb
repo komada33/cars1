@@ -1,0 +1,30 @@
+<h3><%= @car_post.user.name %></h4>
+
+  <dev>
+    <%= image_tag @car_post.get_car_image(200,200) %>
+  </dev>
+
+  <dev>
+    <h6>タイトル:<%= @car_post.title %></h6>
+  </dev>
+
+  <dev>
+    <h6>ジャンル:<%= @car_post.parts_genre.pname %></h6>
+  </dev>
+
+  <dev>
+    <h4>
+      <%= @car_post.message %>
+    </h4>
+  </dev>
+
+  <dev>
+    <h4>
+      <% if @car_post.user == current_user %>
+        <%= link_to "編集する", edit_car_post_path(@car_post.id) %>
+        <%= link_to "削除", car_post_path(@car_post.id), method: :delete %>
+      <% end %>
+    </h4>
+  </dev>
+
+

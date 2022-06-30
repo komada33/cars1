@@ -1,0 +1,40 @@
+<h4>新規投稿</h4>
+
+　<%= form_with model: @car_post, url: car_posts_path, local:true do |f| %>
+
+    <dev>
+　    <h4>
+　      ジャンル</br>
+        <%= f.collection_select :parts_genre_id, PartsGenre.all, :id, :pname, options = { include_blank: true, :prompt => "選択して下さい" } %>
+　    </h4>
+　  </dev>
+
+　  <dev>
+　    <h4>
+　      タイトル</br>
+　      <%= f.text_field :title %>
+　    </h4>
+　  </dev>
+
+　  <dev>
+　    <h4>
+　      内容</br>
+　      <%= f.text_area :message %>
+　    </h4>
+　  </dev>
+
+　  <dev>
+　    <h4>
+　      投稿画像</br>
+　      <%= f.file_field :car_image %>
+　    </h4>
+　  </dev>
+
+　  <dev>
+　    <h4>
+　      <%= f.submit "投稿" %>
+　    </h4>
+　  </dev>
+
+　<% end %>
+

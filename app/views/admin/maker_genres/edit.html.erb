@@ -1,0 +1,6 @@
+<h4>maker編集</h4>
+
+<%= form_with model: @maker, url: admin_maker_genre_path(@maker.id), method: :patch, local:true do |f| %>
+  <%= f.text_field :mname %>
+  <%= f.submit "編集" %>
+<% end %>
