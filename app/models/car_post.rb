@@ -3,6 +3,7 @@ class CarPost < ApplicationRecord
   has_one_attached :car_image
   belongs_to :parts_genre
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   def get_car_image(width, height)
     unless car_image.attached?

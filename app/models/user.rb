@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_one_attached :plofile_image
 
   belongs_to :maker_genre
-  has_many :car_posts
+  has_many :car_posts, dependent: :destroy
+  has_many :comments
 
   def get_plofile_image(width, height)
     unless plofile_image.attached?

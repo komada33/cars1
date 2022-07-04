@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_25_233254) do
+ActiveRecord::Schema.define(version: 2022_06_30_063123) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 2022_06_25_233254) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "post_comment"
+    t.integer "user_id"
+    t.integer "car_post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_post_id"], name: "index_comments_on_car_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "maker_genres", force: :cascade do |t|
     t.string "mname"
     t.datetime "created_at", precision: 6, null: false
@@ -91,4 +101,6 @@ ActiveRecord::Schema.define(version: 2022_06_25_233254) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "car_posts"
+  add_foreign_key "comments", "users"
 end

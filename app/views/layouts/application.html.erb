@@ -13,11 +13,13 @@
   <body>
     <header>
       <% if user_signed_in? %>
+        <%= link_to "ホーム", root_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <%= link_to "users", users_path %>
         <%= link_to "CarPost", car_posts_path %>
         <%= link_to "新規投稿", new_car_post_path %>
       <% elsif admin_signed_in? %>
+        <%= link_to "ホーム", root_path %>
         <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
         <%= link_to "maker_genre", admin_maker_genres_path %>
         <%= link_to "parts_genre", admin_parts_genres_path %>

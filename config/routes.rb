@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :users
-    resources :car_posts
+    resources :car_posts do
+      resources :comments, only: [:create]
+    end
   end
 
 

@@ -1,12 +1,12 @@
 class User::CarPostsController < ApplicationController
   def new
-    @car_post = CarPost.new
+    @carpost = CarPost.new
   end
 
   def create
-    @car_post = CarPost.new(car_post_params)
-    @car_post.user_id = current_user.id
-    if @car_post.save
+    @carpost = CarPost.new(car_post_params)
+    @carpost.user_id = current_user.id
+    if @carpost.save
       redirect_to car_posts_path
     else
       render 'new'
@@ -14,31 +14,33 @@ class User::CarPostsController < ApplicationController
   end
 
   def index
-    @car_posts = CarPost.all
+    @carposts = CarPost.all
   end
 
   def show
-    @car_post = CarPost.find(params[:id])
+    @carpost = CarPost.find(params[:id])
+    @comments = @carpost.comments
+    @comment = current_user.comments.new
   end
 
   def edit
-    @car_post = CarPost.find(params[:id])
+    @carpost = CarPost.find(params[:id])
   end
 
   def update
-    @car_post = CarPost.find(params[:id])
-    @car_post.update(car_post_params)
-    redirect_to car_post_path(@car_post.id)
+    @carpost = CarPost.find(params[:id])
+    @carpost.update(car_post_params)
+    redirect_to car_post_path(@carpost.id)
   end
 
   def destroy
-    @car_post = CarPost.find(params[:id])
-    @car_post.destroy
+    @carpost = CarPost.find(params[:id])
+    @carpost.destroy
       redirect_to car_posts_path
   end
 
   private
   def car_post_params
-    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :car_image)
+    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :comment_id, :car_image)
   end
 end
