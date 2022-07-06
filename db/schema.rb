@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_30_063123) do
+ActiveRecord::Schema.define(version: 2022_07_06_071406) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2022_06_30_063123) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "goods", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "car_post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_post_id"], name: "index_goods_on_car_post_id"
+    t.index ["user_id"], name: "index_goods_on_user_id"
+  end
+
   create_table "maker_genres", force: :cascade do |t|
     t.string "mname"
     t.datetime "created_at", precision: 6, null: false
@@ -79,6 +88,13 @@ ActiveRecord::Schema.define(version: 2022_06_30_063123) do
 
   create_table "parts_genres", force: :cascade do |t|
     t.string "pname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -103,4 +119,6 @@ ActiveRecord::Schema.define(version: 2022_06_30_063123) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "car_posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "goods", "car_posts"
+  add_foreign_key "goods", "users"
 end

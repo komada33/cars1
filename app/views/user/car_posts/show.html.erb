@@ -28,6 +28,20 @@
   </dev>
 
   <dev>
+    <% if @carpost.gooded?(current_user) %>
+      <%= link_to car_post_good_path(@carpost.id), method: :delete do %>
+        <span style="color:red;">◆いいね！</span>
+      <% end %>
+    <% else %>
+      <%= link_to car_post_goods_path(@carpost.id), method: :post do %>
+        <span>◆いいね！</span>
+      <% end %>
+    <% end %>
+
+    <%= @good_count %>
+  </dev>
+
+  <dev>
     <h4>comment</h4>
 
     <dev>
@@ -40,7 +54,7 @@
     <dev>
       <h4>コメント一覧</h4>
       <% @comments.each do |comment| %>
-        <%= comment.user.name %>
+        <%= comment.user.name %>:
         <%= comment.post_comment %>
       <% end %>
     </dev>

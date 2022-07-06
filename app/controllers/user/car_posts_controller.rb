@@ -21,6 +21,7 @@ class User::CarPostsController < ApplicationController
     @carpost = CarPost.find(params[:id])
     @comments = @carpost.comments
     @comment = current_user.comments.new
+    @good_count = Good.where(car_post_id: @carpost.id).count
   end
 
   def edit

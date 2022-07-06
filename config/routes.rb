@@ -17,9 +17,14 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :users
+    resources :users do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     resources :car_posts do
       resources :comments, only: [:create]
+      resources :goods, only: [:create, :destroy]
     end
   end
 
