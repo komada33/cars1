@@ -10,26 +10,36 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if user_signed_in? %>
-        <%= link_to "ホーム", root_path %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "users", users_path %>
-        <%= link_to "CarPost", car_posts_path %>
-        <%= link_to "新規投稿", new_car_post_path %>
-      <% elsif admin_signed_in? %>
-        <%= link_to "ホーム", root_path %>
-        <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
-        <%= link_to "maker_genre", admin_maker_genres_path %>
-        <%= link_to "parts_genre", admin_parts_genres_path %>
-      <% else %>
-        <%= link_to "ホーム", root_path %>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
-        <%= link_to "管理者ログイン", new_admin_session_path %>
-      <% end %>
-    </header>
+    <div class="header">
+    <div class="container">
+
+      <div class="logo_area">
+        <div class="logo">
+          <%= link_to "Cars", root_path %>
+        </div>
+      </div>
+
+      <nav class="menu_area">
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "users", users_path %></li>
+            <li><%= link_to "CarPost", car_posts_path %></li>
+            <li><%= link_to "新規投稿", new_car_post_path %></li>
+          <% elsif admin_signed_in? %>
+            <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "maker_genre", admin_maker_genres_path %></li>
+            <li><%= link_to "parts_genre", admin_parts_genres_path %></li>
+          <% else %>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "管理者ログイン", new_admin_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+
+    </div>
+    </div>
     <%= yield %>
   </body>
 </html>
