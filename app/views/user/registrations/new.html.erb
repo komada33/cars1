@@ -1,49 +1,77 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="form">
+
+  <h2>Sign Up!</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "user/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :name, "ユーザーネーム" %>
+    </div>
+    <div class="form-item-content">
+      <%= f.text_field :name, placeholder: "ユーザーネーム" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :mname %><br />
-    <%= f.collection_select :maker_genre_id, MakerGenre.all, :id, :mname, options = { include_blank: true, :prompt => "選択して下さい" } %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :maker_genre_id, "メーカー" %>
+    </div>
+    <div class="form-item-content">
+      <%= f.collection_select :maker_genre_id, MakerGenre.all, :id, :mname, { include_blank: "選択して下さい" }, {class: "select"} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :car_name %><br />
-    <%= f.text_field :car_name %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :car_name, "車名" %>
+    </div>
+    <div class="form-item-content">
+      <%= f.text_field :car_name, placeholder: "車名" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :plofile_image %><br />
-    <%= f.file_field :plofile_image %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :plofile_image, "ユーザーアイコンを選択", class: "btn" %>
+      <%= f.file_field :plofile_image %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :email, "Eメール" %>
+    </div>
+    <div class="form-item-content">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+    </div>
+    <div class="form-item-content">
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-item">
+    <div class="form-item-label">
+      <%= f.label :password_confirmation, "パスワード再入力" %>
+    </div>
+    <div class="form-item-content">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-submit">
+   <%= f.submit "新規登録" %>
   </div>
-<% end %>
-
-<%= render "user/shared/links" %>
+  <% end %>
+</div>
