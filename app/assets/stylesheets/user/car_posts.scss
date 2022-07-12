@@ -1,6 +1,8 @@
 // Place all the styles related to the user/car_posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$text-deco: "a:link, a:visited, a:hover, a:active";
+
 .new-form{
   max-width: 500px;
   margin: 30px auto 0;
@@ -68,5 +70,60 @@
     height: 35px;
     border: 2px solid #ddd;
     border-radius: 6px;
+  }
+}
+
+.carposts{
+  max-width: 600px;
+  margin: 60px auto 0;
+
+  .new-post{
+    border-top: 2px solid #ddd;
+    padding: 30px 100px;
+    #{$text-deco} {color: black;}
+    #{$text-deco} {text-decoration: none;}
+
+    .new-post-user{
+      width: 100%;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+
+      .plofile-image{
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .user-car{
+        font-size: 1px;
+      }
+    }
+
+    .new-post-image{
+      margin: 0 auto;
+
+      .car-image{
+        max-width: 400px;
+        max-height: 700px;
+        border-radius: 10px;
+      }
+    }
+
+    .new-post-title{
+      width: 100%;
+
+      .genre{
+      font-weight: bold;
+      font-size: 1px;
+      }
+
+      .title{
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
   }
 }

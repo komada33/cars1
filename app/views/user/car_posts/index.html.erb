@@ -1,11 +1,44 @@
-<h1>CarPost</h1>
 
-  <% @carposts.each do |car_post| %>
+<div class="carposts">
 
-  <dev>
-    <%= link_to car_post.title, car_post_path(car_post.id) %>
-  </dev>
+  <h2>New Car News!!</h2>
 
-  <% end %>
+    <% @carposts.each do |carpost| %>
 
+      <div class="new-post">
+
+        <div class="new-post-time">
+          <%= carpost.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </div>
+
+        <div class="new-post-user">
+          <%= link_to user_path(carpost.user.id) do %>
+            <%= image_tag carpost.user.get_plofile_image(50,50), class: "plofile-image" %>
+          <% end %>
+          <div class="user-right">
+            <div class="user-name"><%= link_to carpost.user.name, user_path(carpost.user.id) %></div>
+            <div class="user-car"><%= carpost.user.maker_genre.mname %>. <%= carpost.user.car_name %></div>
+          </div>
+        </div>
+
+        <div class="new-post-image">
+          <%= link_to car_post_path(carpost.id) do %>
+            <%= image_tag carpost.get_car_image(300,300), class: "car-image" %>
+          <% end %>
+        </div>
+
+        <div class="new-post-title">
+          <div class="genre">
+            ジャンル:<%= carpost.parts_genre.pname %>
+          </div>
+          <div class="title">
+            <%= link_to carpost.title, car_post_path(carpost.id) %>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+
+</div>
 
