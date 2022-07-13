@@ -14,7 +14,7 @@
           </div>
           <div class="user-right">
             <div class="user-name"><%= link_to user.name, user_path(user.id) %></div>
-            <div class="user-car"><%= user.maker_genre.mname %>. <%= user.car_name %></div>
+            <div class="user-car"><%= link_to user.maker_genre.mname, user_path(user.id) %>. <%= link_to user.car_name, user_path(user.id) %></div>
           </div>
 
           <div class="user-follow">
