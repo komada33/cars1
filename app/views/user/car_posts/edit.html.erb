@@ -1,42 +1,49 @@
-<h4>新規投稿</h4>
 
-　<%= form_with model: @carpost, url: car_post_path(@carpost.id), method: :patch, local:true do |f| %>
+<div class="edit-form">
 
-    <dev>
-　    <h4>
-　      ジャンル</br>
-        <%= f.collection_select :parts_genre_id, PartsGenre.all, :id, :pname, options = { include_blank: true, :prompt => "選択して下さい" } %>
-　    </h4>
-　  </dev>
+  <h2>投稿編集</h2>
 
-　  <dev>
-　    <h4>
-　      タイトル</br>
-　      <%= f.text_field :title %>
-　    </h4>
-　  </dev>
+  <%= form_with model: @carpost, url: car_post_path(@carpost.id), method: :patch, local:true do |f| %>
 
-　  <dev>
-　    <h4>
-　      内容</br>
-　      <%= f.text_area :message %>
-　    </h4>
-　  </dev>
+  <div class="edit-form-item">
+    <div class="new-form-item-label">
+      <%= f.label :parts_genre_id, "ジャンル" %>
+    </div>
+    <div class="edit-form-item-content">
+      <%= f.collection_select :parts_genre_id, PartsGenre.all, :id, :pname, { include_blank: "選択して下さい" }, class: "select" %>
+    </div>
+  </div>
 
-　  <dev>
-　    <h4>
-　      投稿画像</br>
-　      <%= f.file_field :car_image %>
-　    </h4>
-　  </dev>
+  <div class="edit-form-item">
+    <div class="new-form-item-label">
+      <%= f.label :title, "タイトル" %>
+    </div>
+    <div class="edit-form-item-content">
+      <%= f.text_field :title %>
+    </div>
+  </div>
 
-　  <dev>
-　    <h4>
-　      <%= f.submit "編集" %>
-　    </h4>
-　  </dev>
+  <div class="edit-form-item">
+    <div class="edit-form-item-label">
+      <%= f.label :message, "内容" %>
+    </div>
+    <div class="edit-form-item-content">
+      <%= f.text_area :message %>
+    </div>
+  </div>
 
-　<% end %>
+  <div class="edit-form-item">
+    <div class="edit-form-item-label">
+      <%= f.label :car_image, "投稿画像を選択", class: "btn" %>
+      <%= f.file_field :car_image %>
+    </div>
+  </div>
+
+  <div class="edit-form-submit">
+    <%= f.submit "編集" %>
+  </div>
+  <% end %>
+</div>
 
 
 

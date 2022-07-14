@@ -10,7 +10,7 @@
       <%= f.label :parts_genre_id, "ジャンル" %>
     </div>
     <div class="new-form-item-content">
-      <%= f.collection_select :parts_genre_id, PartsGenre.all, :id, :pname, { include_blank:  "選択して下さい" }, class: "select" %>
+      <%= f.collection_select :parts_genre_id, PartsGenre.all, :id, :pname, { include_blank: "選択して下さい" }, class: "select" %>
     </div>
   </div>
 

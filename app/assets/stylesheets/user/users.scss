@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 $text-deco: "a:link, a:visited, a:hover, a:active";
 
-.users{
+.index-users{
   max-width: 600px;
   margin: 60px auto 0;
 
-  .user{
+  .index-user{
     border-top: 2px solid #ddd;
     padding: 30px 70px;
     #{$text-deco} {color: black;}
@@ -18,7 +18,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       border-bottom: 2px solid #ddd;
     }
 
-    .user-show{
+    .index-user-show{
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -33,16 +33,17 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
          display: inline-block;
       }
 
-      .user-right{
+      .index-user-right{
         float: left;
         width: 200px;
 
-        .user-car{
+        .index-user-car{
           font-size: 1px;
         }
       }
 
-      .user-follow{
+      .index-user-follow{
+        .btn{
         display: block;
         background-color: #ddd;
         width: 100px;
@@ -53,7 +54,165 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         text-align: center;
         margin-left: 75px;
         float: left;
+        }
       }
+    }
+  }
+}
+
+.user-edit-form{
+  max-width: 500px;
+  margin: 30px auto 0;
+
+  .user-edit-item{
+    border-top: 1px solid #ddd;
+    padding: 24px 50px;
+    width: 80%;
+
+    .user-edit-item-label{
+      width: 100%;
+      font-weight: bold;
+    }
+
+    &:nth-child(6){
+      border-bottom: 1px solid #ddd;
+    }
+  }
+
+  input[type="text"]{
+    width: 400px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .user-edit-submit{
+    margin-left: 150px;
+  }
+
+  input[type="submit"]{
+    margin: 30px 50px;
+    width: 100px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+  }
+
+  input[type="file"]{
+    display: none;
+  }
+
+  .btn{
+    display: block;
+    background-color: #ddd;
+    width: 250px;
+    height: 25px;
+    border-radius: 6px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 75px;
+  }
+
+  .select{
+    width: 410px;
+    height: 35px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+  }
+}
+
+.show-user{
+  max-width: 600px;
+  margin: 30px auto 0;
+
+  .show-user-content{
+    border-top: 2px solid #ddd;
+    padding: 10px 50px;
+
+    .show-user-box{
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      #{$text-deco} {color: black;}
+      #{$text-deco} {text-decoration: none;}
+
+      .plofile-image{
+        width: 50px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .show-car-name{
+        font-size: 1px;
+      }
+
+      .show-user-btn{
+        .follow-btn{
+          display: block;
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-decoration: none;
+          text-align: center;
+          margin-left: 75px;
+          float: left;
+        }
+
+        .edit-btn{
+          display: block;
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-decoration: none;
+          text-align: center;
+          margin-left: 75px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  .show-carposts{
+    border-top: 2px solid #ddd;
+    padding: 10px 50px;
+
+    h2{
+      margin-bottom: 0;
+    }
+  }
+
+  .show-carpost{
+    border-top: 2px solid #ddd;
+    padding: 10px 50px;
+
+    .show-post-image{
+      .car-image{
+        max-width: 400px;
+        max-height: 700px;
+        border-radius: 10px;
+        margin: 10px 100px 10px;
+      }
+    }
+
+    .show-parts-genre{
+      font-weight: bold;
+      font-size: 1px;
+      margin: 0 100px 0;
+    }
+
+    .show-title{
+      font-weight: bold;
+      font-size: 15px;
+      max-width: 500px;
+      margin: 0 100px 0px;
     }
   }
 }

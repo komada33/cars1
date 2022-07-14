@@ -6,8 +6,7 @@
     border-top: 1px solid #ddd;
     padding: 24px 50px;
     width: 80%;
-
-
+    
     &:nth-child(8){
       border-bottom: 1px solid #ddd;
     }
@@ -19,21 +18,21 @@
   }
 
   input[type="text"]{
-    width: 300px;
+    width: 400px;
     height: 30px;
     border: 2px solid #ddd;
     border-radius: 6px;
   }
 
   input[type="email"]{
-    width: 300px;
+    width: 400px;
     height: 30px;
     border: 2px solid #ddd;
     border-radius: 6px;
   }
 
   input[type="password"]{
-    width: 300px;
+    width: 400px;
     height: 30px;
     border: 2px solid #ddd;
     border-radius: 6px;
@@ -44,7 +43,7 @@
   }
 
   input[type="submit"]{
-    margin: 30px;
+    margin: 30px 50px;
     width: 100px;
     height: 30px;
     border: 2px solid #ddd;
@@ -58,16 +57,17 @@
   .btn{
     display: block;
     background-color: #ddd;
-    width: 200px;
+    width: 250px;
     height: 25px;
     border-radius: 6px;
     color: black;
     text-decoration: none;
     text-align: center;
+    margin-left: 75px;
   }
 
   .select{
-    width: 310px;
+    width: 410px;
     height: 35px;
     border: 2px solid #ddd;
     border-radius: 6px;

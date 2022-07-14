@@ -1,15 +1,46 @@
-<h1>User編集</h1>
 
-　<%= form_with model: User.find(params[:id]), url: user_path(@user.id), method: :patch, local:true do |f| %>
+<div class="user-edit-form">
 
-　  <%= f.text_field :name %>
+  <h2>ユーザー編集</h2>
 
-　  <%= f.text_field :car_name %>
+　　<%= form_with model: @user, url: user_path(@user.id), method: :patch, local:true do |f| %>
 
-　  <%= f.collection_select :maker_genre_id, MakerGenre.all, :id, :mname, options = { include_blank: true, :prompt => "選択して下さい" } %>
+      <div class="user-edit-item">
+        <div class="user-edit-item-label">
+          <%= f.label :name, "ユーザーネーム" %>
+        </div>
+        <div class="user-edit-item-content">
+          <%= f.text_field :name %>
+        </div>
+      </div>
 
-    <%= f.file_field :plofile_image %>
+      <div class="user-edit-item">
+        <div class="user-edit-item-label">
+          <%= f.label :maker_genre_id, "メーカー" %>
+        </div>
+        <div class="user-edit-item-content">
+          <%= f.collection_select :maker_genre_id, MakerGenre.all, :id, :mname, { include_blank: "選択して下さい" }, class: "select" %>
+        </div>
+      </div>
 
-    <%= f.submit "編集" %>
+      <div class="user-edit-item">
+        <div class="user-edit-item-label">
+          <%= f.label :car_name, "車名" %>
+        </div>
+        <div class="user-edit-item-content">
+          <%= f.text_field :car_name %>
+        </div>
+      </div>
 
-  <% end %>
+      <div class="user-edit-item">
+        <div class="user-edit-item-label">
+          <%= f.label :plofile_image, "ユーザーアイコンを選択", class: "btn" %>
+          <%= f.file_field :plofile_image %>
+        </div>
+      </div>
+
+      <div class="user-edit-submit">
+        <%= f.submit "編集" %>
+      </div>
+    <% end %>
+</div>

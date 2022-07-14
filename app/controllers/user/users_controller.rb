@@ -5,6 +5,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @carposts = @user.car_posts
   end
 
   def edit

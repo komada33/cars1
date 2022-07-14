@@ -1,24 +1,51 @@
-<%= image_tag @user.get_plofile_image(50,50) %><h4><%= @user.name %></h4><h6>さんのページ</h6>
 
-  <dev>
-    <h6>
-      メーカー</br>
-      <%= @user.maker_genre.mname %>
-    </h6>
+<div class="show-user">
+  <div class="show-user-content">
+    <div class="show-user-box">
+      <div class="user-image">
+　　　  <%= link_to user_path(@user.id) do %>
+          <%= image_tag @user.get_plofile_image(50,50), class: "plofile-image" %>
+        <% end %>
+      </div>
+      <div class="show-user-right">
+        <div class="show-name"><%= @user.name %></div>
+        <div class="show-car-name"><%= link_to @user.maker_genre.mname, user_path(@user.id) %>. <%= link_to @user.car_name, user_path(@user.id) %></div>
+      </div>
+      <div class="show-user-btn">
+        <div class="show-user-follow">
+　　　    <% if current_user.following(@user) %>
+            <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete, class: "follow-btn" %>
+          <% else %>
+            <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "follow-btn" %>
+          <% end %>
+        </div>
+        <div class="show-edit">
+          <% if @user == current_user %>
+            <%= link_to "User Edit!", edit_user_path(@user.id), class: "edit-btn" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-    <h6>
-      車名</br>
-      <%= @user.car_name %>
-    </h6>
 
-    <h6>
-      <%= link_to "ユーザー情報を変更する", edit_user_path(@user.id) %>
-    </h6>
-  </dev>
 
-  <dev>
-    投稿一覧
-  </dev>
+  </div>
 
+    <div class="show-carposts">
+      <h2>投稿一覧</h2>
+    </div>
+
+    <% @carposts.each do |carpost| %>
+    <div class="show-carpost">
+      <div class="show-post-image">
+        <%= link_to car_post_path(carpost.id) do %>
+          <%= image_tag carpost.get_car_image(300,300), class: "car-image" %>
+        <% end %>
+      </div>
+      <div class="show-parts-genre">ジャンル：<%= carpost.parts_genre.pname %></div>
+      <div class="show-title"><%= carpost.title %></div>
+    </div>
+    <% end %>
+</div>
 
 
