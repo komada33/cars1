@@ -4,36 +4,45 @@
 $text-deco: "a:link, a:visited, a:hover, a:active";
 
 .home{
-  max-width: 600px;
-  margin: 60px auto 0;
+  flex: 1;
+  max-width: 700px;
+  margin: 0 auto;
 
-  .new-post{
+  .home-post{
     border-top: 2px solid #ddd;
-    padding: 30px 100px;
+    width: 700px;
+    padding: 30px auto;
     #{$text-deco} {color: black;}
     #{$text-deco} {text-decoration: none;}
 
-    .new-post-user{
+    .home-post-user{
       width: 100%;
       font-weight: bold;
-      display: flex;
-      align-items: center;
+      overflow: hidden;
+      padding-left: 150px;
+      padding-right: auto;
 
       .plofile-image{
         width: 50px;
         height: 50px;
         padding: 5px;
         border-radius: 50%;
-        display: inline-block;
+        float: left;
       }
 
-      .user-car{
-        font-size: 1px;
+      .home-user-right{
+        float: left;
+        padding: 10px 0;
+
+        .user-car{
+          font-size: 1px;
+        }
       }
     }
 
-    .new-post-image{
+    .home-post-image{
       margin: 0 auto;
+      text-align: center;
 
       .car-image{
         max-width: 400px;
@@ -42,17 +51,20 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       }
     }
 
-    .new-post-title{
-      width: 100%;
+    .home-post-title{
+        width: 500px;
+        margin-bottom: 20px;
+        padding-left: 100px;
+        padding-right: auto;
 
-      .genre{
-      font-weight: bold;
-      font-size: 1px;
+      .home-genre{
+          font-weight: bold;
+          font-size: 1px;
       }
 
-      .title{
-        font-weight: bold;
-        font-size: 20px;
+      .home-title{
+          font-weight: bold;
+          font-size: 20px;
       }
     }
   }

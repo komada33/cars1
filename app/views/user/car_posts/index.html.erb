@@ -1,37 +1,38 @@
 
 <div class="carposts">
 
-  <h2>New Car News!!</h2>
+  <h2>Index Car Posts!!</h2>
 
     <% @carposts.each do |carpost| %>
 
-      <div class="new-post">
+      <div class="index-post">
 
         <div class="new-post-time">
           <%= carpost.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
         </div>
 
-        <div class="new-post-user">
+        <div class="index-post-user">
           <%= link_to user_path(carpost.user.id) do %>
             <%= image_tag carpost.user.get_plofile_image(50,50), class: "plofile-image" %>
           <% end %>
-          <div class="user-right">
+          <div class="index-user-right">
             <div class="user-name"><%= link_to carpost.user.name, user_path(carpost.user.id) %></div>
             <div class="user-car"><%= carpost.user.maker_genre.mname %>. <%= carpost.user.car_name %></div>
           </div>
+
         </div>
 
-        <div class="new-post-image">
+        <div class="index-post-image">
           <%= link_to car_post_path(carpost.id) do %>
             <%= image_tag carpost.get_car_image(300,300), class: "car-image" %>
           <% end %>
         </div>
 
-        <div class="new-post-title">
-          <div class="genre">
+        <div class="index-post-title">
+          <div class="index-genre">
             ジャンル:<%= carpost.parts_genre.pname %>
           </div>
-          <div class="title">
+          <div class="index-title">
             <%= link_to carpost.title, car_post_path(carpost.id) %>
           </div>
         </div>
