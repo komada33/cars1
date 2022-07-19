@@ -1,4 +1,4 @@
-
+<%= render partial: 'layouts/sidebar' %>
 
 <div class="carpost">
 
@@ -12,8 +12,14 @@
 
       <div class="carpost-user">
         <div class="user-image">
-          <%= link_to user_path(@carpost.user.id) do %>
-            <%= image_tag @carpost.user.get_plofile_image(50,50), class: "plofile-image" %>
+          <% if @carpost.user.plofile_image.attached? %>
+            <%= link_to user_path(@carpost.user.id) do %>
+              <%= image_tag @carpost.user.plofile_image, class: "plofile-image" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(@carpost.user.id) do %>
+              <%= image_tag 'no_image.jpg', class: "no_image" %>
+            <% end %>
           <% end %>
         </div>
 
@@ -39,19 +45,24 @@
         </div>
       </div>
 
-      <div class="carpost-image"><%= image_tag @carpost.get_car_image(300,300), class: "car-image" %></div>
+      <div class="carpost-image"><%= image_tag @carpost.car_image, class: "car-image" %></div>
 
-      <div class="good">
-        <% if @carpost.gooded?(current_user) %>
-          <%= link_to car_post_good_path(@carpost.id), method: :delete do %>
-            <span style="color:red;">★いいね！</span>
+      <div class="show-carpost-btn">
+        <div class="show-carpost-good">
+          <% if @carpost.gooded?(current_user) %>
+            <%= link_to car_post_good_path(@carpost.id), method: :delete do %>
+              <span style="color:red;">★いいね！</span>
+            <% end %>
+          <% else %>
+            <%= link_to car_post_goods_path(@carpost.id), method: :post do %>
+              <span>◆いいね！</span>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to car_post_goods_path(@carpost.id), method: :post do %>
-            <span>◆いいね！</span>
-          <% end %>
-        <% end %>
-        <%= @good_count %>
+          <%= @good_count %>
+        </div>
+        <div class="show-carpost-comment-count">
+          コメント<%= @comment_count %>
+        </div>
       </div>
 
       <div class="carpost-text">
@@ -66,7 +77,7 @@
       <div class="carpost-edit">
         <% if @carpost.user == current_user %>
           <div class="edit"><%= link_to "編集する", edit_car_post_path(@carpost.id) %></div>
-          <div class="delete"><%= link_to "削除", car_post_path(@carpost.id), method: :delete %></div>
+          
       <% end %>
       </div>
 
@@ -81,6 +92,7 @@
         <div class="text"><%= f.text_area :post_comment %></div>
         <div class="submit"><%= f.submit 'コメントする' %></div>
       <% end %>
+
     </div>
 
 
@@ -89,8 +101,14 @@
         <div class="comments">
           <div class="comments-user">
             <div class="user-image">
-              <%= link_to user_path(comment.user.id) do %>
-                <%= image_tag comment.user.get_plofile_image(50,50), class: "plofile-image" %>
+              <% if comment.user.plofile_image.attached? %>
+                <%= link_to user_path(comment.user.id) do %>
+                  <%= image_tag comment.user.plofile_image, class: "plofile-image" %>
+                <% end %>
+              <% else %>
+                <%= link_to user_path(comment.user.id) do %>
+                  <%= image_tag 'no_image.jpg', class: "no_image" %>
+                <% end %>
               <% end %>
             </div>
 

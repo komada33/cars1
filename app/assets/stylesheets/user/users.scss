@@ -76,12 +76,11 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
 .user-edit-form{
   flex: 1;
   max-width: 600px;
-  margin: 30px 300px 0 100px;
+  margin: 30px auto;
 
   .user-edit-item{
     border-top: 1px solid #ddd;
     padding: 24px 50px;
-    width: 80%;
 
     .user-edit-item-label{
       width: 100%;
@@ -101,11 +100,12 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
   }
 
   .user-edit-submit{
-    margin-left: 150px;
+    text-align: center;
+    margin: 0 auto;
   }
 
   input[type="submit"]{
-    margin: 30px 50px;
+    margin: 30px auto;
     width: 100px;
     height: 30px;
     border: 2px solid #ddd;
@@ -125,7 +125,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     color: black;
     text-decoration: none;
     text-align: center;
-    margin-left: 75px;
+    margin: 0 auto;
   }
 
   .select{
@@ -133,6 +133,20 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     height: 35px;
     border: 2px solid #ddd;
     border-radius: 6px;
+  }
+
+  .withdrawl{
+    display: block;
+    background-color: #ddd;
+    width: 100px;
+    height: 25px;
+    border-radius: 6px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 10px;
+    #{$text-deco} {text-decoration: none;}
+    #{$text-deco} {color: red;}
   }
 }
 
@@ -222,36 +236,115 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     border-bottom: 2px solid #ddd;
   }
 
-  .show-user-carpost{
-    margin-top: 10px;
-    width: 700px;
-    padding: 30px auto;
-    border-bottom: 2px solid #ddd;
-
-    .show-user-carpost-text{
-      width: 500px;
-      padding-left: 100px;
-      padding-right: auto;
-
-      .show-user-genre{
-        font-weight: bold;
-        font-size: 1px;
-      }
-
-      .show-user-title{
-        font-weight: bold;
-        width: 500px;
-      }
+  .slider{
+    .button{
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
 
-    .show-user-carpost-image{
-      margin: 0 auto;
-      text-align: center;
+    .slide-arrow{
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+    }
 
-      .car-image{
-        max-width: 400px;
-        max-height: 700px;
-        border-radius: 10px;
+    .prev-arrow{
+      left: 0px;
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 15px solid #113463;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .next-arrow{
+      right: 0px;
+      width: 0;
+      height: 0;
+      border-right: 0 solid transparent;
+      border-left: 15px solid #113463;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+
+
+    .show-user-carpost{
+      margin-top: 20px;
+      width: 700px;
+      padding: 30px auto;
+      border-bottom: 2px solid #ddd;
+
+      .show-user-carpost-time{
+        margin-bottom: 20px;
+      }
+
+      .show-user-carpost-text{
+        width: 500px;
+        padding-left: 100px;
+        padding-right: auto;
+
+        .show-user-genre{
+          font-weight: bold;
+          font-size: 1px;
+        }
+
+        .show-user-title{
+          font-weight: bold;
+          width: 500px;
+        }
+      }
+
+      .show-user-carpost-image{
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 10px;
+
+        .car-image{
+          max-width: 700px;
+          max-height: 700px;
+          border-radius: 10px;
+        }
+      }
+
+      .show-user-btn{
+        margin-bottom: 50px;
+
+        .show-user-good{
+          #{$text-deco} {text-decoration: none;}
+          display: block;
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-decoration: none;
+          text-align: center;
+          margin-left: 200px;
+          float: left;
+        }
+
+        .show-user-comment-count{
+          float: left;
+          display: block;
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-decoration: none;
+          text-align: center;
+          margin-left: 10px;
+          float: left;
+        }
       }
     }
   }

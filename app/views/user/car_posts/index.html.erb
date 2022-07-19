@@ -1,9 +1,10 @@
+<%= render partial: 'layouts/sidebar' %>
 
 <div class="carposts">
 
   <h2>Index Car Posts!!</h2>
 
-    <% @carposts.each do |carpost| %>
+    <% @search_carposts.each do |carpost| %>
 
       <div class="index-post">
 
@@ -12,8 +13,14 @@
         </div>
 
         <div class="index-post-user">
-          <%= link_to user_path(carpost.user.id) do %>
-            <%= image_tag carpost.user.get_plofile_image(50,50), class: "plofile-image" %>
+          <% if carpost.user.plofile_image.attached? %>
+            <%= link_to user_path(carpost.user.id) do %>
+              <%= image_tag carpost.user.plofile_image, class: "plofile-image" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(carpost.user.id) do %>
+              <%= image_tag 'no_image.jpg', class: "no_image" %>
+            <% end %>
           <% end %>
           <div class="index-user-right">
             <div class="user-name"><%= link_to carpost.user.name, user_path(carpost.user.id) %></div>
@@ -24,8 +31,17 @@
 
         <div class="index-post-image">
           <%= link_to car_post_path(carpost.id) do %>
-            <%= image_tag carpost.get_car_image(300,300), class: "car-image" %>
+            <%= image_tag carpost.car_image, class: "car-image" %>
           <% end %>
+        </div>
+
+        <div class="index-carposts-btn">
+          <div class="index-carposts-good">
+            Good. <%= Good.where(car_post_id: carpost.id).count %>
+          </div>
+          <div class="index-carposts-comment-count">
+            Comment. <%= Comment.where(car_post_id: carpost.id).count %>
+          </div>
         </div>
 
         <div class="index-post-title">
@@ -42,4 +58,3 @@
     <% end %>
 
 </div>
-

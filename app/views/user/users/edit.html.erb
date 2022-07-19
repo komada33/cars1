@@ -43,4 +43,7 @@
         <%= f.submit "編集" %>
       </div>
     <% end %>
+    <div class="withdrawl">
+    <%= link_to "退会する", withdrawl_path, method: :patch, "data-confirm" => "本当に退会しますか？" %>
+  </div>
 </div>

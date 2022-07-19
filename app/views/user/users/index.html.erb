@@ -1,3 +1,4 @@
+<%= render partial: 'layouts/sidebar' %>
 
 <div class="index-users">
 
@@ -8,11 +9,11 @@
       <div class="index-user">
         <div class="index-user-content">
           <%= link_to user_path(user.id) do %>
-            <%= image_tag user.get_plofile_image(50,50), class: "plofile-image" %>
+            <%= image_tag user.plofile_image, class: "plofile-image", 'data-turbolinks': false %>
           <% end %>
           <div class="index-user-right">
-            <div class="index-user-name"><%= link_to user.name, user_path(user.id) %></div>
-            <div class="index-user-car"><%= link_to user.maker_genre.mname, user_path(user.id) %>. <%= link_to user.car_name, user_path(user.id) %></div>
+            <div class="index-user-name"><%= link_to user.name, user_path(user.id), 'data-turbolinks': false %></div>
+            <div class="index-user-car"><%= link_to user.maker_genre.mname, user_path(user.id), 'data-turbolinks': false %>. <%= link_to user.car_name, user_path(user.id), 'data-turbolinks': false %></div>
           </div>
 
 

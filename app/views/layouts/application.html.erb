@@ -8,6 +8,11 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
   </head>
 
   <div class="body">
@@ -21,18 +26,20 @@
           </div>
         </div>
 
-        <nav class="menu_area">
+      <div class="menu-area">
+        <nav class="menu">
           <ul>
             <% if user_signed_in? %>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            　<li><%= link_to "MakerGenre", maker_genres_path %></li>
+              <li><%= link_to "PartsGenre", parts_genres_path %></li>
               <li><%= link_to "users", users_path %></li>
               <li><%= link_to "CarPost", car_posts_path %></li>
-              <li>><%= link_to "新規投稿", new_car_post_path %></li>
             <% elsif admin_signed_in? %>
               <li><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
               <li><%= link_to "maker_genre", admin_maker_genres_path %></li>
               <li><%= link_to "parts_genre", admin_parts_genres_path %></li>
             <% else %>
+              <li><%= link_to "About", about_path %></li>
               <li><%= link_to "新規登録", new_user_registration_path %></li>
               <li><%= link_to "ログイン", new_user_session_path %></li>
               <li><%= link_to "管理者ログイン", new_admin_session_path %></li>
@@ -40,31 +47,20 @@
           </ul>
         </nav>
 
+        <div class="search-box">
+          <%= search_form_for @search, url: car_posts_path do |f| %>
+            <%= f.text_field :title_or_message_or_parts_genre_pname_or_user_name_or_user_car_name_or_user_maker_genre_mname_cont %>
+            <%= f.submit 'search' %>
+          <% end %>
+        </div>
+      </div>
+
       </div>
     </div>
 
     <div class="main">
 
-      <div class="side">
 
-        <div class="side-image">
-          <%= link_to user_path(current_user.id) do %>
-            <%= image_tag current_user.get_plofile_image(150,150), class: "plofile-image" %>
-          <% end %>
-        </div>
-
-        <div class="side-user">
-          <div class="side-user-name"><%= link_to current_user.name, user_path(current_user.id) %></div>
-          <div class="side-user-mname"><%= current_user.maker_genre.mname %></div>
-          <div class="side-user-car"><%= current_user.car_name %></div>
-        </div>
-
-        <div class="side-menu">
-          <div class="side-new-carpost"><%= link_to "新規投稿", new_car_post_path %></div>
-          <div class="side-logout"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
-        </div>
-
-      </div>
 
       <%= yield %>
 

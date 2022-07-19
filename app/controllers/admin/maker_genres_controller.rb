@@ -2,6 +2,7 @@ class Admin::MakerGenresController < ApplicationController
   def index
     @maker = MakerGenre.new
     @makers = MakerGenre.all
+      redirect_to root_path unless admin_signed_in?
   end
 
   def create
@@ -12,6 +13,7 @@ class Admin::MakerGenresController < ApplicationController
 
   def edit
     @maker = MakerGenre.find(params[:id])
+      redirect_to root_path unless admin_signed_in?
   end
 
   def update

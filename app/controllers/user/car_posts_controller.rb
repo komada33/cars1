@@ -1,6 +1,7 @@
 class User::CarPostsController < ApplicationController
   def new
     @carpost = CarPost.new
+    　redirect_to root_path unless current_user.id == @carpost.user_id
   end
 
   def create
@@ -15,17 +16,21 @@ class User::CarPostsController < ApplicationController
 
   def index
     @carposts = CarPost.all
+      redirect_to new_user_session_path unless user_signed_in?
   end
 
   def show
     @carpost = CarPost.find(params[:id])
     @comments = @carpost.comments
-    @comment = current_user.comments.new
+    @comment = Comment.new
     @good_count = Good.where(car_post_id: @carpost.id).count
+    @comment_count = Comment.where(car_post_id: @carpost.id).count
+      redirect_to new_user_session_path unless user_signed_in?
   end
 
   def edit
     @carpost = CarPost.find(params[:id])
+      redirect_to root_path unless current_user.id == @carpost.user_id
   end
 
   def update

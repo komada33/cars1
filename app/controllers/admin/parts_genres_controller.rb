@@ -2,6 +2,7 @@ class Admin::PartsGenresController < ApplicationController
   def index
     @part = PartsGenre.new
     @parts = PartsGenre.all
+      redirect_to root_path unless admin_signed_in?
   end
 
   def create
@@ -12,6 +13,7 @@ class Admin::PartsGenresController < ApplicationController
 
   def edit
     @part = PartsGenre.find(params[:id])
+      redirect_to root_path unless admin_signed_in?
   end
 
   def update

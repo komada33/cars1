@@ -1,3 +1,4 @@
+<%= render partial: 'layouts/sidebar' %>
 
 <div class="show-user">
 
@@ -5,13 +6,19 @@
 
     <div class="show-user-box">
 
-      <%= link_to user_path(@user.id) do %>
-        <%= image_tag @user.get_plofile_image(50,50), class: "plofile-image" %>
+      <% if @user.plofile_image.attached? %>
+        <%= link_to user_path(@user.id) do %>
+          <%= image_tag @user.plofile_image, class: "plofile-image" %>
+        <% end %>
+      <% else %>
+        <%= link_to user_path(@user.id) do %>
+          <%= image_tag 'no_image.jpg', class: "no_image" %>
+        <% end %>
       <% end %>
 
       <div class="show-user-right">
-        <div class="show-user-name"><%= link_to @user.name, user_path(@user.id) %></div>
-        <div class="show-user-car"><%= link_to @user.maker_genre.mname, user_path(@user.id) %>. <%= link_to @user.car_name, user_path(@user.id) %></div>
+        <div class="show-user-name"><%= link_to @user.name, user_path(@user.id), 'data-turbolinks': false %></div>
+        <div class="show-user-car"><%= link_to @user.maker_genre.mname, user_path(@user.id), 'data-turbolinks': false %>. <%= link_to @user.car_name, user_path(@user.id), 'data-turbolinks': false %></div>
       </div>
 
       <div class="show-user-follow">
@@ -37,24 +44,42 @@
     <h2>投稿一覧</h2>
   </div>
 
+<div class="slider">
   <% @carposts.each do |carpost| %>
-  <div class="show-user-carpost">
+    <div class="show-user-carpost">
 
-    <div class="show-user-carpost-text">
-      <div class="show-user-genre">
-        ジャンル:<%= carpost.parts_genre.pname %>
+      <div class="show-user-carpost-time">
+        <%= carpost.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
       </div>
-      <div class="show-user-title">
-        <%= carpost.title %>
-      </div>
-    </div>
-    <div class="show-user-carpost-image">
-      <%= link_to car_post_path(carpost.id) do %>
-        <%= image_tag carpost.get_car_image(300,300), class: "car-image" %>
-      <% end %>
-    </div>
 
-  </div>
+      <div class="show-user-carpost-text">
+
+        <div class="show-user-genre">
+          ジャンル:<%= carpost.parts_genre.pname %>
+        </div>
+        <div class="show-user-title">
+          <%= carpost.title %>
+        </div>
+
+      </div>
+
+      <div class="show-user-carpost-image">
+        <%= link_to car_post_path(carpost.id) do %>
+          <%= image_tag carpost.car_image, class: "car-image" %>
+        <% end %>
+      </div>
+
+      <div class="show-user-btn">
+        <div class="show-user-good">
+          Good. <%= Good.where(car_post_id: carpost.id).count %>
+        </div>
+        <div class="show-user-comment-count">
+          Comment. <%= Comment.where(car_post_id: carpost.id).count %>
+        </div>
+      </div>
+
+    </div>
   <% end %>
+</div>
 
 </div>

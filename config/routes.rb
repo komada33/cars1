@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   }
 
   root 'user/homes#top'
+  get "/about" => "user/homes#about", as: "about"
+  patch "/user/edit" => "user/users#withdrawl", as: "withdrawl"
 
   namespace :admin do
     resources :maker_genres
@@ -21,11 +23,16 @@ Rails.application.routes.draw do
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
+        collection do
+          get 'search'
+        end
     end
     resources :car_posts do
       resources :comments, only: [:create]
       resources :goods, only: [:create, :destroy]
     end
+    resources :maker_genres, only: [:index, :show]
+    resources :parts_genres, only: [:index, :show]
   end
 
 
