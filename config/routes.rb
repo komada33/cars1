@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   root 'user/homes#top'
   get "/about" => "user/homes#about", as: "about"
   patch "/user/edit" => "user/users#withdrawl", as: "withdrawl"
+  get 'followings' => 'relationships#followings', as: 'followings'
+  get 'followers' => 'relationships#followers', as: 'followers'
 
   namespace :admin do
     resources :maker_genres

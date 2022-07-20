@@ -21,7 +21,7 @@ class User::CarPostsController < ApplicationController
 
   def show
     @carpost = CarPost.find(params[:id])
-    @comments = @carpost.comments
+    @comments = @carpost.comments.order(created_at: :desc)
     @comment = Comment.new
     @good_count = Good.where(car_post_id: @carpost.id).count
     @comment_count = Comment.where(car_post_id: @carpost.id).count

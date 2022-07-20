@@ -11,12 +11,14 @@ class User::RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
-    @users = user.followings
+    @user = User.find(params[:user_id])
+    @users = @user.followings
+      redirect_to new_user_session_path unless user_signed_in?
   end
 
   def followers
-    user = User.find(params[:user_id])
-    @users = user.followers
+    @user = User.find(params[:user_id])
+    @users = @user.followers
+      redirect_to new_user_session_path unless user_signed_in?
   end
 end

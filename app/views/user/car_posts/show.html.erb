@@ -45,6 +45,11 @@
         </div>
       </div>
 
+      <div class="show-carpost-follow-count">
+        <div class="show-carpost-followings"><%= link_to "フォロー", user_followings_path(@carpost.user.id) %>. <%= @carpost.user.followings.count %></div>
+        <div class="show-carpost-followers"><%= link_to "フォロワー", user_followers_path(@carpost.user.id) %>. <%= @carpost.user.followers.count %></div>
+      </div>
+
       <div class="carpost-image"><%= image_tag @carpost.car_image, class: "car-image" %></div>
 
       <div class="show-carpost-btn">
@@ -77,7 +82,7 @@
       <div class="carpost-edit">
         <% if @carpost.user == current_user %>
           <div class="edit"><%= link_to "編集する", edit_car_post_path(@carpost.id) %></div>
-          
+
       <% end %>
       </div>
 
@@ -88,46 +93,12 @@
     </div>
 
     <div class="comment-post">
-      <%= form_with(model:[@carpost, @comment], method: :post) do |f| %>
-        <div class="text"><%= f.text_area :post_comment %></div>
-        <div class="submit"><%= f.submit 'コメントする' %></div>
-      <% end %>
-
+      <%= render partial: 'user/comments/form', local: { comment: @comment, car_post: @carpost } %>
     </div>
 
-
-
-      <% @comments.each do |comment| %>
-        <div class="comments">
-          <div class="comments-user">
-            <div class="user-image">
-              <% if comment.user.plofile_image.attached? %>
-                <%= link_to user_path(comment.user.id) do %>
-                  <%= image_tag comment.user.plofile_image, class: "plofile-image" %>
-                <% end %>
-              <% else %>
-                <%= link_to user_path(comment.user.id) do %>
-                  <%= image_tag 'no_image.jpg', class: "no_image" %>
-                <% end %>
-              <% end %>
-            </div>
-
-            <div class="comments-user-right">
-              <div class="name"><%= link_to comment.user.name, user_path(comment.user.id) %></div>
-              <div class="car-name"><%= link_to comment.user.maker_genre.mname, user_path(comment.user.id) %>. <%= link_to comment.user.car_name, user_path(comment.user.id) %></div>
-            </div>
-          </div>
-
-          <div class="comment">
-            <div class="chatting">
-              <div class="says">
-                <p><%= comment.post_comment %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
+    <div id="comments_area">
+      <%= render partial: 'user/comments/index', local: { comments: @comments } %>
+    </div>
 
 
 </div>

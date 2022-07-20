@@ -2,7 +2,13 @@
 
 <div class="carposts">
 
-  <h2>Index Car Posts!!</h2>
+  <div class="index-top">
+    <h2>Index Car Posts!!</h2>
+
+    <div class="sort">
+      <%= sort_link(@search, :created_at, "日付", default_order: :desc) %>
+    </div>
+  </div>
 
     <% @search_carposts.each do |carpost| %>
 

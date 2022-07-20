@@ -169,6 +169,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       #{$text-deco} {text-decoration: none;}
       padding-left: 150px;
       padding-right: auto;
+      margin-top: 10px;
 
       .plofile-image{
         width: 50px;
@@ -212,6 +213,42 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       }
     }
 
+    .show-user-follow-count{
+      overflow: hidden;
+      padding-left: 150px;
+      #{$text-deco} {color: black;}
+      #{$text-deco} {text-decoration: none;}
+      margin-bottom: 10px;
+
+      .show-user-followings{
+        float: left;
+        display: block;
+        background-color: #ddd;
+        width: 100px;
+        max-width: 200px;
+        height: 25px;
+        border-radius: 6px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .show-user-followers{
+        float: left;
+        display: block;
+        background-color: #ddd;
+        width: 110px;
+        max-width: 200px;
+        height: 25px;
+        border-radius: 6px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 10px;
+      }
+    }
+
+
     .show-user-edit{
       float: right;
 
@@ -237,6 +274,10 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
   }
 
   .slider{
+    .slick-dots li button {
+      display: none;
+    }
+
     .button{
       margin: 0;
       padding: 0;

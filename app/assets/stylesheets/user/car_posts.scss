@@ -87,6 +87,19 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
   max-width: 700px;
   margin: 0 auto;
 
+  .index-top{
+    overflow: hidden;
+
+    h2{
+      float: left;
+    }
+
+    .sort{
+      float: right;
+      padding-top: 10px;
+    }
+  }
+
   .index-post{
     border-top: 2px solid #ddd;
     width: 700px;
@@ -251,6 +264,42 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         margin-left: 70px;
       }
     }
+
+    .show-carpost-follow-count{
+      overflow: hidden;
+      padding-left: 150px;
+      #{$text-deco} {color: black;}
+      #{$text-deco} {text-decoration: none;}
+      margin-bottom: 10px;
+
+      .show-carpost-followings{
+        float: left;
+        display: block;
+        background-color: #ddd;
+        width: 100px;
+        max-width: 200px;
+        height: 25px;
+        border-radius: 6px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .show-carpost-followers{
+        float: left;
+        display: block;
+        background-color: #ddd;
+        width: 110px;
+        max-width: 200px;
+        height: 25px;
+        border-radius: 6px;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 10px;
+      }
+    }
+
 
     .carpost-image{
       margin: 0 auto;

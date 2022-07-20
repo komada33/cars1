@@ -22,6 +22,8 @@ class User::UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
+
+
   def withdrawl
     @user = current_user
       redirect_to root_path unless current_user.id == @user_id

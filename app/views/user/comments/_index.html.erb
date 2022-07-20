@@ -1,0 +1,30 @@
+<% @comments.each do |comment| %>
+        <div class="comments">
+          <div class="comments-user">
+            <div class="user-image">
+              <% if comment.user.plofile_image.attached? %>
+                <%= link_to user_path(comment.user.id) do %>
+                  <%= image_tag comment.user.plofile_image, class: "plofile-image" %>
+                <% end %>
+              <% else %>
+                <%= link_to user_path(comment.user.id) do %>
+                  <%= image_tag 'no_image.jpg', class: "no_image" %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="comments-user-right">
+              <div class="name"><%= link_to comment.user.name, user_path(comment.user.id) %></div>
+              <div class="car-name"><%= link_to comment.user.maker_genre.mname, user_path(comment.user.id) %>. <%= link_to comment.user.car_name, user_path(comment.user.id) %></div>
+            </div>
+          </div>
+
+          <div class="comment">
+            <div class="chatting">
+              <div class="says">
+                <p><%= comment.post_comment %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
