@@ -8,3 +8,8 @@ $(function() {
     nextArrow: '<button class="slide-arrow next-arrow"></button>'
   });
 });
+
+$('input').on('change', function () {
+    var file = $(this).prop('files')[0];
+    $('p').text(file.name);
+});

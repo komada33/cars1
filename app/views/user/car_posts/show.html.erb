@@ -28,52 +28,52 @@
           <div class="car-name"><%= link_to @carpost.user.maker_genre.mname, user_path(@carpost.user.id) %>. <%= link_to @carpost.user.car_name, user_path(@carpost.user.id) %></div>
         </div>
 
-        <div class="follow">
+        <div class="carpost-user-right">
 
           <% if @carpost.user.id == current_user.id %>
-            <div class="show-user-edit">
-              <%= link_to "User Edit", edit_user_path(@carpost.user.id), class: "edit-btn" %>
-            </div>
+
               <% else %>
                 <% if current_user.following(@carpost.user) %>
-                  <%= link_to "フォロー外す", user_relationships_path(@carpost.user.id), method: :delete %>
+                  <%= link_to "フォロー外す", user_relationships_path(@carpost.user.id), method: :delete, class: "follow" %>
                 <% else %>
-                  <%= link_to "フォローする", user_relationships_path(@carpost.user.id), method: :post %>
+                  <%= link_to "フォローする", user_relationships_path(@carpost.user.id), method: :post, class: "follow" %>
                 <% end %>
           <% end %>
 
         </div>
       </div>
 
-      <div class="show-carpost-follow-count">
-        <div class="show-carpost-followings"><%= link_to "フォロー", user_followings_path(@carpost.user.id) %>. <%= @carpost.user.followings.count %></div>
-        <div class="show-carpost-followers"><%= link_to "フォロワー", user_followers_path(@carpost.user.id) %>. <%= @carpost.user.followers.count %></div>
-      </div>
-
-      <div class="carpost-image"><%= image_tag @carpost.car_image, class: "car-image" %></div>
-
-      <div class="show-carpost-btn">
-        <div class="show-carpost-good">
-          <% if @carpost.gooded?(current_user) %>
-            <%= link_to car_post_good_path(@carpost.id), method: :delete do %>
-              <span style="color:red;">★いいね！</span>
-            <% end %>
-          <% else %>
-            <%= link_to car_post_goods_path(@carpost.id), method: :post do %>
-              <span>◆いいね！</span>
-            <% end %>
+      <div class="carpost-image">
+        <% @carpost.car_images.each do |carimages| %>
+            <%= link_to carimages.to_s, "data-ligthbox": carimages.to_s do %>
+          　　<%= image_tag carimages.to_s, class: "car-image" %>
+          　<% end %>
           <% end %>
-          <%= @good_count %>
-        </div>
-        <div class="show-carpost-comment-count">
-          コメント<%= @comment_count %>
-        </div>
       </div>
 
       <div class="carpost-text">
         <div class="carpost-genre">
           ジャンル:<%= @carpost.parts_genre.pname %>
         </div>
+
+        <div class="show-carpost-btn">
+          <div class="show-carpost-good">
+            <% if @carpost.gooded?(current_user) %>
+              <%= link_to car_post_good_path(@carpost.id), method: :delete do %>
+                <span style="color:red;"><i class="fa-solid fa-heart"></i>いいね！</span>
+              <% end %>
+            <% else %>
+              <%= link_to car_post_goods_path(@carpost.id), method: :post do %>
+                <span><i class="fa-regular fa-heart"></i>いいね！</span>
+              <% end %>
+            <% end %>
+            <%= @good_count %>
+          </div>
+          <div class="show-carpost-comment-count">
+            <i class="fa-regular fa-comment-dots"></i>コメント<%= @comment_count %>
+          </div>
+        </div>
+
         <div class="text">
           <%= @carpost.message %>
         </div>

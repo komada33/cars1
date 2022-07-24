@@ -39,7 +39,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       .follow-user-right{
         float: left;
         padding: 10px 0;
-        width: 200px;
+        max-width: 200px;
 
         .follow-user-name{
           white-space: nowrap;
@@ -67,7 +67,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         margin-left: 75px;
         float: left;
         margin: 20px 0;
-        margin-left: 70px;
+        margin-left: 50px;
       }
     }
   }

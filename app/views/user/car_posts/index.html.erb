@@ -36,24 +36,27 @@
         </div>
 
         <div class="index-post-image">
-          <%= link_to car_post_path(carpost.id) do %>
-            <%= image_tag carpost.car_image, class: "car-image" %>
+          <% carpost.car_images.each do |carimages| %>
+            <%= link_to car_post_path(carpost.id) do %>
+          　　<%= image_tag carimages.to_s, class: "car-image" %>
+          　<% end %>
           <% end %>
         </div>
 
-        <div class="index-carposts-btn">
-          <div class="index-carposts-good">
-            Good. <%= Good.where(car_post_id: carpost.id).count %>
-          </div>
-          <div class="index-carposts-comment-count">
-            Comment. <%= Comment.where(car_post_id: carpost.id).count %>
-          </div>
-        </div>
-
-        <div class="index-post-title">
+        <div class="index-post-text">
           <div class="index-genre">
             ジャンル:<%= carpost.parts_genre.pname %>
           </div>
+
+          <div class="index-carposts-btn">
+            <div class="index-carposts-good">
+              <i class="fa-solid fa-heart"></i>いいね！<%= Good.where(car_post_id: carpost.id).count %>
+            </div>
+            <div class="index-carposts-comment-count">
+              <i class="fa-regular fa-comment-dots"></i>コメント<%= Comment.where(car_post_id: carpost.id).count %>
+            </div>
+          </div>
+
           <div class="index-title">
             <%= link_to carpost.title, car_post_path(carpost.id) %>
           </div>

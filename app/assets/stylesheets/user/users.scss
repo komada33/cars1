@@ -14,7 +14,6 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     padding: 30px auto;
     #{$text-deco} {color: black;}
     #{$text-deco} {text-decoration: none;}
-    display: flex;
 
     &:last-child{
         border-bottom: 2px solid #ddd;
@@ -26,7 +25,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       overflow: hidden;
       padding-left: 150px;
       padding-right: auto;
-      margin: 20px 0;
+      margin: 10px 0;
 
       .plofile-image{
         width: 50px;
@@ -34,6 +33,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
+        align-self: flex-start;
       }
 
       .index-user-right{
@@ -58,7 +58,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       .index-user-follow{
         display: block;
         background-color: #ddd;
-        width: 100px;
+        width: 130px;
         height: 25px;
         border-radius: 6px;
         color: black;
@@ -67,7 +67,6 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         margin-left: 75px;
         float: left;
         margin: 20px 0;
-        margin-left: 70px;
       }
     }
   }
@@ -75,17 +74,54 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
 
 .user-edit-form{
   flex: 1;
-  max-width: 600px;
-  margin: 30px auto;
+  max-width: 700px;
+  margin: 0 auto;
 
   .user-edit-item{
     border-top: 1px solid #ddd;
-    padding: 24px 50px;
+    padding: 30px auto;
+    width: 700px;
 
     .user-edit-item-label{
-      width: 100%;
+      margin-top: 10px;
+      margin-left: 150px;
       font-weight: bold;
     }
+
+    .user-edit-item-content{
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .user-edit-image{
+      display: block;
+      background-color: #ddd;
+      width: 200px;
+      border-radius: 6px;
+      border: solid 1px black;
+      color: black;
+      text-decoration: none;
+      text-align: center;
+      font-weight: bold;
+      margin: 10px auto;
+    }
+
+    .user-edit-plofile-image{
+      width: 250px;
+      height: 250px;
+      background-color: #ddd;
+      border-radius: 6px;
+      align-items: center;
+      margin-bottom: 10px;
+
+      .plofile-image{
+        align-self: flex-start;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+      }
+    }
+
 
     &:nth-child(6){
       border-bottom: 1px solid #ddd;
@@ -99,33 +135,22 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     border-radius: 6px;
   }
 
-  .user-edit-submit{
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  input[type="submit"]{
-    margin: 30px auto;
-    width: 100px;
-    height: 30px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-  }
-
   input[type="file"]{
     display: none;
   }
 
-  .btn{
-    display: block;
-    background-color: #ddd;
-    width: 250px;
-    height: 25px;
-    border-radius: 6px;
-    color: black;
-    text-decoration: none;
+  .user-edit-submit{
     text-align: center;
     margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+  }
+
+  input[type="submit"]{
+    margin: 10px auto;
+    width: 100px;
+    height: 30px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
   }
 
   .select{
@@ -141,12 +166,14 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     width: 100px;
     height: 25px;
     border-radius: 6px;
+    border: solid 1px black;
     color: black;
     text-decoration: none;
     text-align: center;
     margin-bottom: 10px;
     #{$text-deco} {text-decoration: none;}
     #{$text-deco} {color: red;}
+    margin-top: 10px;
   }
 }
 
@@ -177,6 +204,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
+        align-self: flex-start;
       }
 
       .show-user-right{
@@ -200,7 +228,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       .show-user-follow{
         display: block;
         background-color: #ddd;
-        width: 100px;
+        width: 130px;
         height: 25px;
         border-radius: 6px;
         color: black;
@@ -278,6 +306,10 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       display: none;
     }
 
+    .slider.slick-initialized {
+      display: block;
+    }
+
     .button{
       margin: 0;
       padding: 0;
@@ -294,6 +326,8 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       position: absolute;
       top: 50%;
       margin-top: -15px;
+      z-index: 1;
+
     }
 
     .prev-arrow{
@@ -328,6 +362,26 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         margin-bottom: 20px;
       }
 
+      .show-user-carpost-image{
+        width: 700px;
+        background-color: #ddd;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 10px;
+        #{$text-deco} {text-decoration: none;}
+
+        .car-image{
+          max-width: 280px;
+          max-height: 280px;
+          padding: 5px;
+          border-radius: 20px;
+          margin: auto;
+        }
+      }
+
       .show-user-carpost-text{
         width: 500px;
         padding-left: 100px;
@@ -338,53 +392,34 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
           font-size: 1px;
         }
 
+        .show-user-btn{
+          width: 500px;
+          display: flex;
+
+          .show-user-good{
+            background-color: #ddd;
+            width: 100px;
+            height: 25px;
+            border-radius: 6px;
+            color: black;
+            text-align: center;
+            margin: 0 0;
+          }
+
+          .show-user-comment-count{
+            background-color: #ddd;
+            width: 100px;
+            height: 25px;
+            border-radius: 6px;
+            color: black;
+            text-align: center;
+            margin: 0 10px;
+          }
+        }
+
         .show-user-title{
           font-weight: bold;
           width: 500px;
-        }
-      }
-
-      .show-user-carpost-image{
-        margin: 0 auto;
-        text-align: center;
-        margin-bottom: 10px;
-
-        .car-image{
-          max-width: 700px;
-          max-height: 700px;
-          border-radius: 10px;
-        }
-      }
-
-      .show-user-btn{
-        margin-bottom: 50px;
-
-        .show-user-good{
-          #{$text-deco} {text-decoration: none;}
-          display: block;
-          background-color: #ddd;
-          width: 100px;
-          height: 25px;
-          border-radius: 6px;
-          color: black;
-          text-decoration: none;
-          text-align: center;
-          margin-left: 200px;
-          float: left;
-        }
-
-        .show-user-comment-count{
-          float: left;
-          display: block;
-          background-color: #ddd;
-          width: 100px;
-          height: 25px;
-          border-radius: 6px;
-          color: black;
-          text-decoration: none;
-          text-align: center;
-          margin-left: 10px;
-          float: left;
         }
       }
     }

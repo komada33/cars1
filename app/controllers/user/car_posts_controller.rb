@@ -1,7 +1,7 @@
 class User::CarPostsController < ApplicationController
   def new
     @carpost = CarPost.new
-    　redirect_to root_path unless current_user.id == @carpost.user_id
+    　redirect_to new_user_session_path unless user_signed_in?
   end
 
   def create
@@ -30,7 +30,7 @@ class User::CarPostsController < ApplicationController
 
   def edit
     @carpost = CarPost.find(params[:id])
-      redirect_to root_path unless current_user.id == @carpost.user_id
+      redirect_to root_path unless current_user.id == @carpost.user.id
   end
 
   def update
@@ -47,6 +47,6 @@ class User::CarPostsController < ApplicationController
 
   private
   def car_post_params
-    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :comment_id, :car_image)
+    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :comment_id, :car_image, { car_images: [] })
   end
 end

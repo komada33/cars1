@@ -1,6 +1,7 @@
 class CarPost < ApplicationRecord
 
-  has_one_attached :car_image
+  #has_one_attached :car_image
+  mount_uploaders :car_images, CarImageUploader
   belongs_to :parts_genre
   belongs_to :user
   has_many :comments, dependent: :destroy

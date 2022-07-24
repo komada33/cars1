@@ -13,7 +13,7 @@ class User::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-      redirect_to root_path unless current_user.id == @user_id
+      redirect_to root_path unless current_user.id == @user.id
   end
 
   def update
@@ -26,7 +26,7 @@ class User::UsersController < ApplicationController
 
   def withdrawl
     @user = current_user
-      redirect_to root_path unless current_user.id == @user_id
+      redirect_to root_path unless current_user.id == @user.id
     @user.update(is_deleted: true)
       reset_session
       redirect_to root_path
