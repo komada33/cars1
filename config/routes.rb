@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
       resources :goods, only: [:create, :destroy]
     end
+    resources :comments, only: [:destroy, :edit, :update]
     resources :maker_genres, only: [:index, :show]
     resources :parts_genres, only: [:index, :show]
   end

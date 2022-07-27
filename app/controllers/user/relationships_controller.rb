@@ -12,13 +12,13 @@ class User::RelationshipsController < ApplicationController
 
   def followings
     @user = User.find(params[:user_id])
-    @users = @user.followings
+    @users = @user.followings.page(params[:page]).per(10)
       redirect_to new_user_session_path unless user_signed_in?
   end
 
   def followers
     @user = User.find(params[:user_id])
-    @users = @user.followers
+    @users = @user.followers.page(params[:page]).per(10)
       redirect_to new_user_session_path unless user_signed_in?
   end
 end

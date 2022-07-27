@@ -61,10 +61,12 @@
                         list-style: none;
 
                         li{
-                            margin-left: 10px;
+                            margin-left: 8px;
                             padding-right: 10px;
                             border-right: 2px solid #fff;
-
+                            :hover{
+                                background-color: #888;
+                            }
 
                             &:last-child{
                                 border-right: none;
@@ -161,6 +163,35 @@
                     text-decoration: none;
                     text-align: center;
                     margin-top: 50px;
+                }
+            }
+        }
+
+        .page{
+            padding-top: 10px;
+            text-align: center;
+
+            .pagination{
+                margin: 0 auto;
+                width: 70%;
+                display: flex;
+                justify-content: center;
+
+                span{
+                    text-align: center;
+                    width: 50px;
+                    padding: 0;
+
+                    :hover{
+                        background-color:#f3f3f3;
+                        border-radius: 40%;
+                    }
+
+                    a{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }

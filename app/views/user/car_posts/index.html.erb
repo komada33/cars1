@@ -3,10 +3,12 @@
 <div class="carposts">
 
   <div class="index-top">
-    <h2>Index Car Posts!!</h2>
+
+      <h2>Car Posts!!</h2>
 
     <div class="sort">
       <%= sort_link(@search, :created_at, "日付", default_order: :desc) %>
+      <%= sort_link(@search, :car_posts_good_count, "いいね！", default_order: :desc) %>
     </div>
   </div>
 
@@ -14,7 +16,7 @@
 
       <div class="index-post">
 
-        <div class="new-post-time">
+        <div class="index-post-time">
           <%= carpost.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
         </div>
 
@@ -35,7 +37,7 @@
 
         </div>
 
-        <div class="index-post-image">
+        <div class="slider">
           <% carpost.car_images.each do |carimages| %>
             <%= link_to car_post_path(carpost.id) do %>
           　　<%= image_tag carimages.to_s, class: "car-image" %>
@@ -66,4 +68,10 @@
 
     <% end %>
 
+      <div class="page">
+        <%= paginate @search_carposts %>
+      </div>
+
 </div>
+
+

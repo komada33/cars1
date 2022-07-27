@@ -28,8 +28,6 @@
           <div class="car-name"><%= link_to @carpost.user.maker_genre.mname, user_path(@carpost.user.id) %>. <%= link_to @carpost.user.car_name, user_path(@carpost.user.id) %></div>
         </div>
 
-        <div class="carpost-user-right">
-
           <% if @carpost.user.id == current_user.id %>
 
               <% else %>
@@ -40,10 +38,9 @@
                 <% end %>
           <% end %>
 
-        </div>
       </div>
 
-      <div class="carpost-image">
+      <div class="slider">
         <% @carpost.car_images.each do |carimages| %>
             <%= link_to carimages.to_s, "data-ligthbox": carimages.to_s do %>
           　　<%= image_tag carimages.to_s, class: "car-image" %>

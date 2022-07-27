@@ -234,14 +234,13 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         color: black;
         text-decoration: none;
         text-align: center;
-        margin-left: 75px;
-        float: left;
         margin: 20px 0;
-        margin-left: 70px;
+        float: left;
+        margin-left: 75px;
       }
     }
 
-    .show-user-follow-count{
+    .show-user-count{
       overflow: hidden;
       padding-left: 150px;
       #{$text-deco} {color: black;}
@@ -274,22 +273,19 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         text-align: center;
         margin-left: 10px;
       }
-    }
 
-
-    .show-user-edit{
-      float: right;
-
-      .edit-btn{
+      .show-user-carposts-count{
+        float: left;
         display: block;
         background-color: #ddd;
-        width: 100px;
+        width: 110px;
+        max-width: 200px;
         height: 25px;
         border-radius: 6px;
         color: black;
         text-decoration: none;
         text-align: center;
-        margin-bottom: 10px;
+        margin-left: 10px;
       }
     }
   }
@@ -301,126 +297,109 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     border-bottom: 2px solid #ddd;
   }
 
-  .slider{
-    .slick-dots li button {
-      display: none;
+  .show-user-carpost{
+    margin-top: 20px;
+    width: 700px;
+    padding: 0 auto;
+    border-bottom: 2px solid #ddd;
+
+    .show-user-carpost-time{
+      margin-bottom: 20px;
     }
 
-    .slider.slick-initialized {
-      display: block;
-    }
+    .slider{
+      width: 600px;
+      padding-bottom: 10px;
+      background-color: #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      #{$text-deco} {text-decoration: none;}
 
-    .button{
-      margin: 0;
-      padding: 0;
-      background: none;
-      border: none;
-      border-radius: 0;
-      outline: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-
-    .slide-arrow{
-      position: absolute;
-      top: 50%;
-      margin-top: -15px;
-      z-index: 1;
-
-    }
-
-    .prev-arrow{
-      left: 0px;
-      width: 0;
-      height: 0;
-      border-left: 0 solid transparent;
-      border-right: 15px solid #113463;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-    }
-
-    .next-arrow{
-      right: 0px;
-      width: 0;
-      height: 0;
-      border-right: 0 solid transparent;
-      border-left: 15px solid #113463;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-    }
-
-
-
-    .show-user-carpost{
-      margin-top: 20px;
-      width: 700px;
-      padding: 30px auto;
-      border-bottom: 2px solid #ddd;
-
-      .show-user-carpost-time{
-        margin-bottom: 20px;
+      button{
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
 
-      .show-user-carpost-image{
-        width: 700px;
-        background-color: #ddd;
-        border-radius: 6px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 10px;
-        #{$text-deco} {text-decoration: none;}
+      .slide-arrow{
+        position: absolute;
+        top: 50%;
+        margin-top: -15px;
+      }
+
+      .prev-arrow{
+        left: -40px;
+        width: 0;
+        height: 0;
+        border-left: 0 solid transparent;
+        border-right: 15px solid #113463;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+      }
+
+      .next-arrow{
+        right: -40px;
+        width: 0;
+        height: 0;
+        border-right: 0 solid transparent;
+        border-left: 15px solid #113463;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+      }
+
 
         .car-image{
-          max-width: 280px;
-          max-height: 280px;
-          padding: 5px;
+          max-width: 400px;
           border-radius: 20px;
-          margin: auto;
+        }
+
+    }
+
+    .show-user-carpost-text{
+      width: 500px;
+      padding-left: 100px;
+      padding-right: auto;
+      margin-bottom: 20px;
+
+      .show-user-genre{
+        font-weight: bold;
+        font-size: 1px;
+      }
+
+      .show-user-btn{
+        width: 500px;
+        display: flex;
+
+        .show-user-good{
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-align: center;
+          margin: 0 0;
+        }
+
+        .show-user-comment-count{
+          background-color: #ddd;
+          width: 100px;
+          height: 25px;
+          border-radius: 6px;
+          color: black;
+          text-align: center;
+          margin: 0 10px;
         }
       }
 
-      .show-user-carpost-text{
+      .show-user-title{
+        font-weight: bold;
         width: 500px;
-        padding-left: 100px;
-        padding-right: auto;
-
-        .show-user-genre{
-          font-weight: bold;
-          font-size: 1px;
-        }
-
-        .show-user-btn{
-          width: 500px;
-          display: flex;
-
-          .show-user-good{
-            background-color: #ddd;
-            width: 100px;
-            height: 25px;
-            border-radius: 6px;
-            color: black;
-            text-align: center;
-            margin: 0 0;
-          }
-
-          .show-user-comment-count{
-            background-color: #ddd;
-            width: 100px;
-            height: 25px;
-            border-radius: 6px;
-            color: black;
-            text-align: center;
-            margin: 0 10px;
-          }
-        }
-
-        .show-user-title{
-          font-weight: bold;
-          width: 500px;
-        }
       }
     }
   }

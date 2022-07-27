@@ -59,4 +59,4 @@ gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'carrierwave'
-
+gem 'kaminari'

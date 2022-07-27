@@ -8,14 +8,14 @@ class User::CarPostsController < ApplicationController
     @carpost = CarPost.new(car_post_params)
     @carpost.user_id = current_user.id
     if @carpost.save
-      redirect_to car_posts_path
+      redirect_to car_post_path(@carpost.id)
     else
       render 'new'
     end
   end
 
   def index
-    @carposts = CarPost.all
+    @carposts = CarPost.all.page(params[:page]).per(5)
       redirect_to new_user_session_path unless user_signed_in?
   end
 
@@ -30,13 +30,12 @@ class User::CarPostsController < ApplicationController
 
   def edit
     @carpost = CarPost.find(params[:id])
-      redirect_to root_path unless current_user.id == @carpost.user.id
   end
 
   def update
     @carpost = CarPost.find(params[:id])
     @carpost.update(car_post_params)
-    redirect_to car_post_path(@carpost.id)
+      redirect_to car_post_path(@carpost.id)
   end
 
   def destroy

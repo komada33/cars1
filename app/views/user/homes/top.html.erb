@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div class="home-post-image">
+        <div class="slider">
           <% carpost.car_images.each do |carimages| %>
             <%= link_to car_post_path(carpost.id) do %>
           　　<%= image_tag carimages.to_s, class: "car-image" %>
