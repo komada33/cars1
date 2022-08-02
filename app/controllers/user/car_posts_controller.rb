@@ -15,7 +15,7 @@ class User::CarPostsController < ApplicationController
   end
 
   def index
-    @carposts = CarPost.all.page(params[:page]).per(5)
+    @carposts = CarPost.all.page(params[:page]).per(5).order(created_at: :desc)
       redirect_to new_user_session_path unless user_signed_in?
   end
 
@@ -46,6 +46,6 @@ class User::CarPostsController < ApplicationController
 
   private
   def car_post_params
-    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :comment_id, :car_image, { car_images: [] })
+    params.require(:car_post).permit(:title, :message, :user_id, :parts_genre_id, :comment_id, { car_images: [] })
   end
 end

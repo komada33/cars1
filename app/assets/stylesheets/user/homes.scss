@@ -28,7 +28,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       width: 100%;
       font-weight: bold;
       overflow: hidden;
-      padding-left: 150px;
+      padding-left: 100px;
       padding-right: auto;
 
       .plofile-image{
@@ -37,6 +37,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
+        object-fit: contain;
       }
 
       .home-user-right{
@@ -96,7 +97,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       }
 
 
-        .car-image{
+        .home-car-image{
           max-width: 400px;
           border-radius: 20px;
         }

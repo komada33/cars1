@@ -19,10 +19,10 @@
             </div>
 
           <% if current_user.id == comment.user_id %>
-
+            <div class="comment-btn">
               <div class="comment-delete"><%= link_to "コメント削除", comment_path(comment.id), method: :delete, "data-confirm" => "コメントを削除しますか？" %></div>
               <div class="comment-edit"><%= link_to "コメント編集", edit_comment_path(comment.id) %></div>
-
+            </div>
           <% else %>
           <% end %>
           </div>
@@ -30,7 +30,7 @@
           <div class="comment">
             <div class="chatting">
               <div class="says">
-                <p><%= comment.post_comment %></p>
+                <p><%= safe_join(comment.post_comment.split("\n"),tag(:br)) %></p>
               </div>
             </div>
           </div>

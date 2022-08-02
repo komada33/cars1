@@ -7,7 +7,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @carposts = @user.car_posts.page(params[:page]).per(5).order(created_at: :desc)
+    @carposts = @user.car_posts.order(created_at: :desc).page(params[:page]).per(5)
       redirect_to new_user_session_path unless user_signed_in?
   end
 

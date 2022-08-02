@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :car_name, presence: true, length: { maximum: 20 }
+  validates :maker_genre_id, presence: true
+
   has_one_attached :plofile_image
 
   belongs_to :maker_genre
@@ -16,7 +21,7 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
 
-  
+
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

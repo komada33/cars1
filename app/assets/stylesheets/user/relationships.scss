@@ -34,6 +34,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
+        object-fit: contain;
       }
 
       .follow-user-right{

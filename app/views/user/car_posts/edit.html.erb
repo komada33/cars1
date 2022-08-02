@@ -73,6 +73,7 @@ $('#car_post_car_images').on('change', function (e) {
       $('#car_post_car_images').val = "";
       for( let i = 0; i < 10; i++) {
         $(`#preview_${i}`).attr('src', "");
+        location.reload()
       }
 
     }else{

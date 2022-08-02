@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
  $text-deco: "a:link, a:visited, a:hover, a:active";
 
 *{
@@ -26,7 +25,12 @@
     flex-direction: column;
 
     .header{
+        z-index: 2;
+        position: fixed;
+        left: calc((100% - 910px) / 2);
         width: 910px;
+        margin: 0 auto;
+
         .container{
             height: 100px;
             padding-left: 50px;
@@ -82,14 +86,21 @@
         }
     }
 
+    .header-box{
+        height: 100px;
+    }
+
+
+
     .main{
         display: flex;
         max-width: 1200px;
 
         .side{
+            position: fixed;
             width: 200px;
             height: 600px;
-            margin: 10px 10px 10px 0;
+            margin: 10px 10px 10px -5px;
             text-align: center;
             background-color: #888;
             color: #fff;
@@ -101,19 +112,20 @@
                 text-align: center;
                 width: 150px;
                 height: 150px;
-                padding: 5px;
                 border-radius: 50%;
                 margin: 10px auto;
-                align-self: flex-start;
+                border: 6px solid black;
+                object-fit: contain;
             }
 
             .no_image{
                 text-align: center;
                 width: 150px;
                 height: 150px;
-                padding: 5px;
                 border-radius: 70%;
                 margin: 10px auto;
+                border: 6px solid black;
+                object-fit: contain;
             }
 
             .side-user{
@@ -121,8 +133,12 @@
                 border-top: 2px solid #fff;
                 font-weight: bold;
                 color: black;
-                padding: 30px 0;
-                font-size: 20px;
+                padding: 10px 0;
+                font-size: 12px;
+
+                .side-name{
+                    margin: 10px 0;
+                }
             }
 
             .side-menu{
@@ -165,6 +181,10 @@
                     margin-top: 50px;
                 }
             }
+        }
+
+        .side-box{
+            width: 200px;
         }
 
         .page{

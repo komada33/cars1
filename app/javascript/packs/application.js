@@ -4,14 +4,14 @@
 // that code so it'll be compiled.
 import '@fortawesome/fontawesome-free/js/all';
 
-import Rails from "@rails/ujs"
+import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
 
-Rails.start()
+Rails.start();
 //Turbolinks.start()
-ActiveStorage.start()
-require('jquery')
-require("./slick")
-require('./preview')
+ActiveStorage.start();
+require('jquery');
+require("./slick");
+require('./preview');

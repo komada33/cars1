@@ -33,7 +33,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
-        align-self: flex-start;
+        object-fit: contain;
       }
 
       .index-user-right{
@@ -79,13 +79,17 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
 
   .user-edit-item{
     border-top: 1px solid #ddd;
-    padding: 30px auto;
+    padding: 0 auto;
     width: 700px;
 
     .user-edit-item-label{
       margin-top: 10px;
       margin-left: 150px;
       font-weight: bold;
+
+      span{
+        font-size: 5px;
+      }
     }
 
     .user-edit-item-content{
@@ -94,12 +98,10 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
     }
 
     .user-edit-image{
-      display: block;
       background-color: #ddd;
       width: 200px;
       border-radius: 6px;
       border: solid 1px black;
-      color: black;
       text-decoration: none;
       text-align: center;
       font-weight: bold;
@@ -111,20 +113,15 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       height: 250px;
       background-color: #ddd;
       border-radius: 6px;
-      align-items: center;
       margin-bottom: 10px;
 
-      .plofile-image{
-        align-self: flex-start;
-        width: 250px;
-        height: 250px;
+      .edit-plofile-image{
+        width: 200px;
+        height: 200px;
         border-radius: 50%;
+        object-fit: contain;
+        margin: 25px;
       }
-    }
-
-
-    &:nth-child(6){
-      border-bottom: 1px solid #ddd;
     }
   }
 
@@ -194,7 +191,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
       overflow: hidden;
       #{$text-deco} {color: black;}
       #{$text-deco} {text-decoration: none;}
-      padding-left: 150px;
+      padding-left: 100px;
       padding-right: auto;
       margin-top: 10px;
 
@@ -204,12 +201,13 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         padding: 5px;
         border-radius: 50%;
         float: left;
-        align-self: flex-start;
+        object-fit: contain;
       }
 
       .show-user-right{
         float: left;
         padding: 10px 0;
+        width: 290px;
 
         .show-user-name{
           white-space: nowrap;
@@ -236,7 +234,7 @@ $text-deco: "a:link, a:visited, a:hover, a:active";
         text-align: center;
         margin: 20px 0;
         float: left;
-        margin-left: 75px;
+        margin-left: 15px;
       }
     }
 

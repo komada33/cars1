@@ -7,8 +7,7 @@
       <h2>Car Posts!!</h2>
 
     <div class="sort">
-      <%= sort_link(@search, :created_at, "日付", default_order: :desc) %>
-      <%= sort_link(@search, :car_posts_good_count, "いいね！", default_order: :desc) %>
+      <%= sort_link(@search, :created_at, "日付", default_order: :asc) %>
     </div>
   </div>
 

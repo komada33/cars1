@@ -1,15 +1,11 @@
 <%= render partial: 'layouts/sidebar' %>
 
-
 <div class="user-edit-form">
-
-  <h2>ユーザー編集</h2>
-
 　　<%= form_with model: @user, url: user_path(@user.id), method: :patch, local:true do |f| %>
-
+      <h2>ユーザー編集</h2>
       <div class="user-edit-item">
         <div class="user-edit-item-label">
-          <%= f.label :name, "ユーザーネーム" %>
+          <%= f.label :name, "ユーザーネーム" %><span>※20文字まで入力できます</span>
         </div>
         <div class="user-edit-item-content">
           <%= f.text_field :name %>
@@ -27,7 +23,7 @@
 
       <div class="user-edit-item">
         <div class="user-edit-item-label">
-          <%= f.label :car_name, "車名" %>
+          <%= f.label :car_name, "車名" %><span>※20文字まで入力できます</span>
         </div>
         <div class="user-edit-item-content">
           <%= f.text_field :car_name %>
@@ -40,17 +36,18 @@
           <%= f.file_field :plofile_image %>
         </div>
         <div class="user-edit-plofile-image">
-          <img id="preview" class="plofile-image">
+          <img id="preview" class="edit-plofile-image">
         </div>
       </div>
 
       <div class="user-edit-submit">
         <%= f.submit "編集" %>
       </div>
-    <% end %>
+
     <div class="withdrawl">
     <%= link_to "退会する", withdrawl_path, method: :patch, "data-confirm" => "本当に退会しますか？" %>
   </div>
+  <% end %>
 </div>
 
 <script>
@@ -60,6 +57,6 @@
         $("#preview").attr('src', e.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
-});
+  });
 </script>
 

@@ -72,7 +72,7 @@
         </div>
 
         <div class="text">
-          <%= @carpost.message %>
+          <%= safe_join(@carpost.message.split("\n"),tag(:br)) %>
         </div>
       </div>
 

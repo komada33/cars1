@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     @search = CarPost.ransack(params[:q])
-    @search_carposts = @search.result.page(params[:page]).per(5)
+    @search_carposts = @search.result.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   protected
